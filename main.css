@@ -1,0 +1,120 @@
+.nav-container{
+    position: sticky;
+    z-index: 3;
+    top:0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    height: 12hv;
+    background-color: black;
+}
+
+/* .banner{
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+
+
+} */
+
+.foto-mama{
+    background-size:cover;
+    background-position: center;
+    height: 100vh; 
+}
+.banner-container{
+    text-align:center;
+    padding: 12% 1;
+}
+
+.contenido{
+    color: black;
+    font: size 30px; ;
+}
+
+
+
+.ver-carrito{
+    font-size: 25px;
+    margin-top: 3.5vh;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+
+.titulo{
+    display: flex;
+    color :beige;
+    padding: 35px;
+    font-size: 28px;
+}
+
+.cuerpo{
+    margin:0px;
+    background-color: rgba(255, 255, 0, 0.798);
+
+}
+
+
+
+
+.cartitas-c {
+    display: flex;
+    margin-top: 30px;
+    margin-left: 80px;
+    margin-right: 80px;
+
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 12% 0;
+
+
+   
+    
+}
+.card{
+   box-shadow: 0 4px 8px  rgba(0, 0, 0, 0.557);
+   max-width: 240px;
+   margin: auto;
+   text-align: center;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   
+}
+
+.foto {
+    width:90% ;
+    height: 250px;
+    border-radius:20px ;
+    /* padding: 12% 0; */
+    
+
+
+}
+
+
+.precio {
+    color: blue;
+    font-size: 22px;
+}
+.button{
+    border: none;
+    outline: 0;
+    padding: 10px;
+    color:white;
+    background-color:black;
+    text-align: center;  
+    width: 100%;  
+    cursor: pointer;
+    font-size: 18px;
+
+    
+
+}
+
+
+.card button:hover{
+    opacity: o.9;
+}
+
