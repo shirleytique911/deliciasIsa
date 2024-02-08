@@ -62,6 +62,7 @@ comprar.addEventListener("click", () => {
     carrito.push({
       id:producto.id,
       img: producto.img,
+
       nombre: producto.nombre,
       unidades: producto.unidades,
     });
@@ -88,7 +89,6 @@ const saveLocal =() => {
 
 
 JSON.parse(localStorage.getItem("carrito"));
-
 
   
 
