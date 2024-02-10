@@ -6,6 +6,7 @@ const pintarCarrito = () => {
   modalCaptura.innerHTML = `
     <h1 class="modal-captura-title">Carrito.</h1>
     <span class="close-modal">&times;</span>
+  
   `;
   modal.append(modalCaptura);
 
@@ -18,7 +19,7 @@ const pintarCarrito = () => {
       let carritoContent = document.createElement("div");
       carritoContent.className = "modal-content";
       carritoContent.innerHTML = `
-        <img src="${producto.img}">
+        <img class"modal-img" src="${producto.img}">
         <h3>${producto.nombre}</h3>
         <p>${producto.precio}</p>
         <p>${producto.ciudad}</p>
@@ -79,45 +80,44 @@ const carritoCounter = () => {
 
 const getObjetos = async () => {
   try {
-    const response = await fetch("doc.json"); // Asegúrate de que la ruta y el nombre del archivo sean correctos
+    const response = await fetch("doc.Json");
     const doc = await response.json();
-    console.log(doc); // Verifica si los objetos se están cargando correctamente desde el archivo JSON
+    console.log(doc);
     doc.forEach((producto) => {
-      console.log(producto); // Verifica si los productos se están iterando correctamente
-      let content = document.createElement("div");
-      content.className = "card";
-      content.innerHTML = `
-        <img src="${producto.img}">
-        <h3>${producto.nombre}</h3>
-        <p>$${producto.precio}</p>
-        <p>${producto.ciudad}</p>
-        <p>${producto.unidades}</p>
-      `;
-      cartitas.append(content);
-
-      let comprar = document.createElement("button");
-      comprar.innerText = "comprar";
-      comprar.className = "comprar";
-      comprar.addEventListener("click", () => {
-        const repeat = carrito.some((prod) => prod.id === producto.id);
-        if (repeat) {
-          carrito.find((prod) => prod.id === producto.id).unidades++;
-        } else {
-          carrito.push({ ...producto, unidades: 1 });
-        }
-        saveLocal();
-        carritoCounter(); // Asegúrate de que esta función esté definida antes de llamarla
-      });
-      content.append(comprar);
+      // Renderizar cada producto en la página
+      renderizarProducto(producto);
     });
+    // Llamar a pintarCarrito después de obtener los productos
+    pintarCarrito();
   } catch (error) {
     console.error("Error al cargar objetos:", error);
   }
 };
 
+// Función para renderizar un producto en la página
+const renderizarProducto = (producto) => {
+  let content = document.createElement("div");
+  content.className = "card";
+  content.innerHTML = `
+    <img src="${producto.img}">
+    <h3>${producto.nombre}</h3>
+    <p>$${producto.precio}</p>
+    <p>${producto.ciudad}</p>
+    <p>${producto.unidades}</p>
+  `;
+  cartitas.append(content);
+
+  let comprar = document.createElement("button");
+  comprar.innerText = "comprar";
+  comprar.className = "comprar";
+  comprar.addEventListener("click", () => {
+    // Lógica para añadir productos al carrito
+  });
+  content.append(comprar);
+};
+
+
 verCarrito.addEventListener("click", pintarCarrito);
 
-// Llamada a las funciones iniciales
-carritoCounter(); // Asegúrate de que esta función esté definida antes de llamarla
+// Llamada a la función para obtener los productos
 getObjetos();
-pintarCarrito()
