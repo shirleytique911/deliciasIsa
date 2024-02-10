@@ -1,6 +1,7 @@
 
 body {
     margin: 0;
+    cursor: pointer;
 }
 
 /* Navbar */
@@ -57,7 +58,7 @@ body {
 }
 .slogan_1 {
     display: flex;
-    justify-content:center; /* Centra horizontalmente el slogan */
+    justify-content:center; 
     margin: 30px;
     color: bisque;
 
@@ -124,19 +125,22 @@ body {
     scrollbar-width: none;
     color: aliceblue;
     border-top-right-radius: 20px;
+    cursor: pointer;
     
 }
 
 .modal-img {
-    width: 100px; /* Ajusta el ancho según sea necesario */
-    height: 100px; /* Ajusta la altura según sea necesario */
-    object-fit: cover; /* Ajusta cómo se ajusta la imagen dentro del contenedor */
-    border-radius: 6px; /* Agrega esquinas redondeadas si lo deseas */
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
   }
 
 
 .modal::-webkit-scrollbar {
     display: none;
+   
 }
 
 .total-content {
@@ -158,10 +162,27 @@ body {
     font-size: 14px;
 }
 
-.footer{
+.footer-1{
     
     background-color: rgba(255, 255, 0, 0.695);
-    padding: 10px 20px; /* Espaciado interno */
+    padding: 20px 30px; /* Espaciado interno */
 
+}
+.footer-logan{
+    
+    padding: 9px;
+    font-size: 20px;
+    display: flex;
+    justify-content:center;
+
+}
+
+.footer-parrafo{
+    padding: 9px;
+    font-size: 20px;
+    color: rgb(16, 15, 15);
+    display: flex;
+    justify-content:center;
+ 
 }
 

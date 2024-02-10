@@ -19,7 +19,8 @@ const pintarCarrito = () => {
       let carritoContent = document.createElement("div");
       carritoContent.className = "modal-content";
       carritoContent.innerHTML = `
-        <img class"modal-img" src="${producto.img}">
+      <img class="modal-img" src="${producto.img}">
+
         <h3>${producto.nombre}</h3>
         <p>${producto.precio}</p>
         <p>${producto.ciudad}</p>

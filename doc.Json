@@ -1,10 +1,10 @@
    [
 
-    { "id":1, "nombre":"almojabanas","precio": 2000,"unidades": 400,"ciudad":"ibague","img":"https://blog.redbus.co/wp-content/uploads/2020/04/almojabana-1280x720.jpg"},
+    { "id":1, "nombre":"almojabanas","precio": 2000,"unidades": 1200,"ciudad":"ibague","img":"https://blog.redbus.co/wp-content/uploads/2020/04/almojabana-1280x720.jpg"},
   
     { "id":2, "nombre":"pandeyucas","precio": 2000, "unidades": 400,"ciudad":"ibague", "img":"https://media-cdn.tripadvisor.com/media/photo-s/1a/be/23/c0/bizcochos-de-achira-y.jpg"},
   
-    { "id":3, "nombre":"bizcochos","precio": 4000, "unidades": 400,"ciudad":"ibague", "img":"https://media-cdn.tripadvisor.com/media/photo-s/1a/be/23/c0/bizcochos-de-achira-y.jpg"},
+    { "id":3, "nombre":"bizcochos","precio": 4000, "unidades": 1500,"ciudad":"ibague", "img":"https://media-cdn.tripadvisor.com/media/photo-s/1a/be/23/c0/bizcochos-de-achira-y.jpg"},
   
     {"id":4, "nombre":"bizcochuelos","precio": 6000, "unidades": 400,"ciudad":"ibague","img":"https://www.paulinacocina.net/wp-content/uploads/2019/04/bizcochuelo-casero2ok.jpg" },
   
@@ -12,7 +12,7 @@
   
     {"id":6, "nombre":"pandeyucas de dulce","precio": 2500, "unidades": 400,"ciudad":"ibague","img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN69C84ISh1x_dhb39YkBoPC64h9jIP3paNQ&usqp=CAU"},
   
-    {"id":7, "nombre":"merengues","precio":3000, "unidades":400,"ciudad":"ibague","img":"https://img-global.cpcdn.com/recipes/aeb3bc3836547403/1360x964cq70/merengues-o-suspiros-foto-principal.webp" },
+    {"id":7, "nombre":"merengues","precio":3000, "unidades":1000,"ciudad":"ibague","img":"https://img-global.cpcdn.com/recipes/aeb3bc3836547403/1360x964cq70/merengues-o-suspiros-foto-principal.webp" },
   
     {"id":8, "nombre":"bizcochos de achira", "precio":8000, "unidades": 400,"ciudad":"ibague","img":"https://cdn.colombia.com/gastronomia/2011/08/05/achira-1568.gif" },
   
