@@ -17,6 +17,7 @@ const verCarrito=document.getElementById("verCarrito")
 const modal=document.getElementById("modal")
 // const showAlert =document.getElementById("showAlert")
 const unidadesCarrito = document.getElementById("unidadesCarrito");
+// const pintarCarrito= document.getElementById("pintarCarrito")
 
 
 
@@ -68,7 +69,7 @@ comprar.addEventListener("click", () => {
     });
   console.log (carrito);
   console.log(carrito.length);
-  carritoCounter();
+  
   saveLocal();
   }
 });
