@@ -50,7 +50,7 @@ const pintarCarrito = () => {
       if (producto.unidades > 1) {
         producto.unidades--;
         saveLocal();  // Guarda el carrito actualizado
-        pintarCarrito();  // Vuelve a renderizar el carrito
+      
       }
     });
 
@@ -58,14 +58,14 @@ const pintarCarrito = () => {
     sumar.addEventListener("click", () => {
       producto.unidades++;
       saveLocal();  // Guarda el carrito actualizado
-      pintarCarrito();  // Vuelve a renderizar el carrito
+    
     });
 
     // Evento para eliminar el producto
     const eliminar = carritoContent.querySelector(".delete-producto");
     eliminar.addEventListener("click", () => {
       eliminarProducto(producto.id);
-      pintarCarrito();  // Vuelve a renderizar el carrito después de eliminar
+     
     });
 
     modal.append(carritoContent);
