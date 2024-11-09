@@ -3,6 +3,7 @@ body {
     margin: 0;
     font-family: 'Arial', sans-serif;
     cursor: pointer;
+    background-color: #f8f8f8;
 }
 
 /* Navbar */
@@ -13,30 +14,48 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(255, 255, 0, 0.695);
-    padding: 10px 20px;
+    background-color: rgba(255, 182, 193, 0.9);
+    padding: 15px 30px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .navbar-logo {
-    color: rgb(16, 15, 15);
-    font-size: 24px;
-    cursor: pointer;
+    color: #333;
+    font-size: 28px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
 }
 
+.navbar-logo-image {
+    height: 50px;
+    width: auto;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Ver Carrito */
 .ver-carrito {
     font-size: 18px;
-    background-color: black;
-    color: rgb(255, 255, 255);
+    background-color: #FF69B4;
+    color: #FFF;
     padding: 8px 16px;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: none; /* Ocultar el carrito por defecto */
+}
+
+.ver-carrito.active {
+    display: inline-flex; /* Mostrar solo si hay productos */
 }
 
 .ver-carrito:hover {
-    opacity: 0.7;
+    background-color: #FFC0CB;
 }
 
+/* Banner */
 .banner {
     background-size: cover;
     background-position: center;
@@ -44,13 +63,13 @@ body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.253), rgba(0, 0, 0, 0.305)), url("/foto doña oliva.jpg");
 }
 
-/* Banner text */
 .titulo-2 {
     display: flex;
     justify-content: center;
     font-size: 30px;
     color: rgb(247, 240, 255);
     background-color: rgba(0, 0, 0, 0.499);
+    padding: 20px;
 }
 
 .slogan {
@@ -58,13 +77,9 @@ body {
     padding: 9px;
     border-radius: 2%;
     font-size: 30px;
-}
-
-.slogan_1 {
-    display: flex;
-    justify-content: center;
-    margin: 30px;
+    text-align: center;
     color: bisque;
+    margin: 30px auto;
 }
 
 /* Card Layout */
@@ -83,6 +98,7 @@ body {
     text-align: center;
     border-radius: 12px;
     transition: transform 0.3s ease-in-out;
+    padding-bottom: 20px;
 }
 
 .card:hover {
@@ -93,6 +109,7 @@ body {
     width: 90%;
     height: 250px;
     border-radius: 12px;
+    object-fit: cover;
 }
 
 .precio {
@@ -100,23 +117,113 @@ body {
     font-size: 22px;
 }
 
+/* Botón de Comprar */
+.card .boton-comprar {
+    background-color: #FF69B4;
+    color: white;
+    padding: 12px 24px; /* Aumentado el tamaño */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px; /* Aumentada la fuente */
+    transition: background-color 0.3s ease;
+}
+
+.card .boton-comprar:hover {
+    background-color: #FFC0CB;
+}
+
 /* Modal */
 .modal {
     width: 70%;
     margin: 0 auto;
     max-height: 88vh;
-    color: white;
-    background-color: #121212;
+    color: #333;
+    background-color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: fixed;
     top: 10vh;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     overflow-y: auto;
     z-index: 9;
+    border: 2px solid #FF69B4;
+}
+
+.modal-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+    color: #333;
+}
+
+.modal-content img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    margin-right: 15px;
+}
+
+.modal-captura {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #FF69B4;
+    border-bottom: 1px solid #FF69B4;
+}
+
+.modal-captura-button {
+    font-size: 24px;
+    cursor: pointer;
+    color: #FF69B4;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    transition: color 0.3s ease;
+}
+
+.modal-captura-button:hover {
+    color: #FFC0CB;
+}
+
+.restar, .sumar {
+    cursor: pointer;
+    color: #FF69B4;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.delete-producto {
+    cursor: pointer;
+    font-size: 20px;
+    color: #FF69B4;
+    transition: color 0.3s ease;
+}
+
+.delete-producto:hover {
+    color: #FF1493;
+}
+
+/* Contenedor total */
+.total-content {
+    font-size: 20px;
+    font-weight: bold;
+    color: #FF69B4;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 2px solid #FF69B4;
+    width: 100%;
+    text-align: center;
 }
 
 /* Footer */
