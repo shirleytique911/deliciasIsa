@@ -11,25 +11,53 @@ body{
 
 .navbar {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    height: 12hv;
-    background-color:rgba(255, 255, 0, 0.695);
+    padding: 0 20px; /* Espaciado interno */
+    height: 12vh;
+    background-color: #FFB6C1; /* Color rosa pastel */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); / /* Sombra para mejor visibilidad */
 }
 
-.navbar-logo{
-    justify-self: start;
-    margin-left: 20px;
-    color:white;
-    margin-top: 4vh;
-    cursor: pointer;
+.navbar-logo {
+    height: 90px; /* Aumenta ligeramente el tamaño del logo */
+    width: auto;
+    margin-right: 10px; /* Espacio entre el logo y el texto */
+    border-radius: 50%; /* Bordes redondos */
+    border: 2px solid #FF69B4; /* Borde más delgado para resaltar */
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 3px; /* Relleno interno más pequeño */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15); /* Sombra más ligera */
 }
 
-.ver-carrito{
-    font-size: 25px;
-    margin-top: 3.5vh;
-    margin-right: 20px;
-    cursor: pointer;
+
+  
+
+.ver-carrito {
+    display: flex;
+    align-items: center;
+    font-size: 24px; /* Tamaño del ícono */
+    color: #FF69B4; /* Color rosa oscuro para el ícono */
+    position: relative; /* Para posicionar el contador */
+    cursor: pointer; /* Para que se vea clickeable */
 }
+
+.ver-carrito i {
+    margin-right: 8px; /* Espacio entre el ícono y el texto */
+}
+
+.unidades-carrito {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #FF69B4; /* Color del fondo del contador */
+    color: #ffffff; /* Color del texto del contador */
+    font-size: 14px; /* Tamaño del número */
+    padding: 2px 6px; /* Tamaño del círculo */
+    border-radius: 50%; /* Forma circular */
+    font-weight: bold;
+}
+
 .banner{
     background-size: cover;
     background-position: center;
@@ -135,67 +163,122 @@ body{
 
 
 
-.modal{
-    width: 80%;
-    margin: 0 10%;
+/* Modal */
+.modal {
+    width: 70%;
+    margin: 0 auto;
     max-height: 88vh;
-    color:white ;
-
+    color: white;
     background-color: #121212;
     display: flex;
     flex-direction: column;
     align-items: center;
-
     position: fixed;
-    overflow: auto;
+    overflow-y: auto;
     z-index: 9;
-    top: 12vh;
-    scrollbar-color: none;
-
-
+    top: 10vh;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
-.modal::-webkit-scrollbar{
+
+.modal::-webkit-scrollbar {
     display: none;
-
 }
-.modal-captura{
+
+/* Encabezado del Modal */
+.modal-captura {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
     background-color: #0a0909;
-    color: #fff;
-    width: 100%; 
+    color: white;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border-bottom: 1px solid #333;
 }
 
-.modar-captura-title{
-    justify-self: start;
+.modal-captura-title {
+    font-size: 24px;
+    margin: 0;
 }
-.modal-captura-button{
-    cursor:pointer;
+
+.modal-captura-button {
+    cursor: pointer;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
 }
-.modal > .modal{
+
+/* Contenido de cada producto */
+.modal-content {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    width: 70%;
-    margin: 10px;
-
+    width: 100%;
+    gap: 15px;
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #1a1a1a;
+    border-radius: 8px;
 }
 
-.modal-captura> div > img{
-    height: 120px;
-    width: 120px;
+.modal-content img {
+    width: 80px;   /* Reducido el tamaño de las imágenes */
+    height: 80px;
+    border-radius: 8px;
 }
+
+.modal-content h3 {
+    margin: 0;
+    font-size: 18px;
+    flex: 1;
+}
+
+.modal-content p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.restar, .sumar, .delete-producto {
+    cursor: pointer;
+    font-size: 20px;
+    color: #ff5f5f;
+    margin: 0 10px;
+}
+
+.sumar {
+    color: #5fff5f;
+}
+
+/* Total */
 .total-content {
-    font-size: 25px;
+    font-size: 22px;
     padding: 20px;
     text-align: center;
-    padding-top: 20px;
+    width: 100%;
+    font-weight: bold;
+    margin-top: 20px;
+    border-top: 1px solid #444;
+    color: #ff5f5f;
 }
 
-.delete-product {
-    cursor: pointer;
+/* Ajuste para el contador del carrito */
+.unidades-carrito {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    padding: 4px;
+    top: 37px;
+    right: 14px;
+    position: absolute;
+    display: none;
 }
+
 
 .unidades-carrito {
     background-color: red;
@@ -208,4 +291,53 @@ body{
     position: absolute;
     display: none;
 
+}
+/* Estilo para el footer */
+.footer {
+    background-color: #F0B1CD; /* Rosa pastel oscuro */
+    color: #ffffff;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1); /* Sombra para mayor visibilidad */
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-logo-img {
+    height: 50px;
+    width: auto;
+    border-radius: 50%; /* Bordes redondos para el logo */
+    border: 2px solid #FF69B4; /* Borde rosa más oscuro */
+    padding: 3px;
+}
+
+.footer_h2 {
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 15px; /* Espacio inferior */
+    text-align: center;
+    font-weight: bold;
+    color: #FF69B4; /* Color rosa oscuro */
+}
+
+.footer-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-icon {
+    color: #ffffff;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.footer-icon:hover {
+    color: #FF69B4; /* Color rosa más oscuro en hover */
 }

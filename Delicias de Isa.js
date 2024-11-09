@@ -63,7 +63,8 @@ comprar.addEventListener("click", () => {
       id:producto.id,
       img: producto.img,
       nombre: producto.nombre,
-      unidades: producto.unidades,
+      unidades: 1,
+      precio: producto.precio,
     });
   console.log (carrito);
   console.log(carrito.length);
