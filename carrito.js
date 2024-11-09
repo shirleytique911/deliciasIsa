@@ -1,14 +1,11 @@
 const pintarCarrito = () => {
-  // Limpiar el contenido actual del modal
   modal.innerHTML = "";
   modal.style.display = "flex";
-  
+
   // Encabezado del modal
   const modalCaptura = document.createElement("div");
   modalCaptura.className = "modal-captura";
-  modalCaptura.innerHTML = `
-    <h1 class="modal-captura-title">Carrito</h1>
-  `;
+  modalCaptura.innerHTML = `<h1 class="modal-captura-title">Carrito</h1>`;
   modal.append(modalCaptura);
 
   // Botón para cerrar el modal
@@ -43,14 +40,13 @@ const pintarCarrito = () => {
       <p>Total: ${producto.unidades * producto.precio}$</p>
       <span class="delete-producto">❌</span>
     `;
-    
+
     // Eventos para sumar y restar unidades
     const restar = carritoContent.querySelector(".restar");
     restar.addEventListener("click", () => {
       if (producto.unidades > 1) {
         producto.unidades--;
         saveLocal();  // Guarda el carrito actualizado
-      
       }
     });
 
@@ -58,25 +54,19 @@ const pintarCarrito = () => {
     sumar.addEventListener("click", () => {
       producto.unidades++;
       saveLocal();  // Guarda el carrito actualizado
-    
     });
 
-    // Evento para eliminar el producto
     const eliminar = carritoContent.querySelector(".delete-producto");
     eliminar.addEventListener("click", () => {
-      eliminarProducto(producto.id);
-     
+      carrito = carrito.filter((prod) => prod.id !== producto.id);
+      saveLocal();
     });
 
     modal.append(carritoContent);
   });
 
   // Calcular y mostrar el total
-  const total = carrito.reduce((acc, producto) => {
-    return acc + (producto.precio || 0) * (producto.unidades || 0);
-  }, 0);
-
-  // Mostrar el total en el modal
+  const total = carrito.reduce((acc, producto) => acc + producto.precio * producto.unidades, 0);
   const totalBuying = document.createElement("div");
   totalBuying.className = "total-content";
   totalBuying.innerHTML = `Total a pagar: ${total}$`;
