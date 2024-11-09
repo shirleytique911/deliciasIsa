@@ -22,11 +22,11 @@ const actualizarCarrito = () => {
   verCarrito.classList.toggle("active", carrito.length > 0);  // Muestra el carrito solo si tiene productos
 };
 
-// Función para pintar el carrito
+// **Aquí está tu función pintarCarrito, ya definida correctamente**
 const pintarCarrito = () => {
   modal.innerHTML = "";
   modal.style.display = "flex";
-  
+
   const modalCaptura = document.createElement("div");
   modalCaptura.className = "modal-captura";
   modalCaptura.innerHTML = `<h1 class="modal-captura-title">Carrito</h1>`;
@@ -67,7 +67,6 @@ const pintarCarrito = () => {
       if (producto.unidades > 1) {
         producto.unidades--;
         saveLocal();
-  
       }
     });
 
@@ -75,14 +74,12 @@ const pintarCarrito = () => {
     sumar.addEventListener("click", () => {
       producto.unidades++;
       saveLocal();
-    
     });
 
     const eliminar = carritoContent.querySelector(".delete-producto");
     eliminar.addEventListener("click", () => {
       carrito = carrito.filter((prod) => prod.id !== producto.id);
       saveLocal();
-   
     });
 
     modal.append(carritoContent);
