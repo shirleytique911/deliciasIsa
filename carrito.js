@@ -1,3 +1,4 @@
+// Asegúrate de que no haya más de una declaración de esta función
 const pintarCarrito = () => {
   modal.innerHTML = "";
   modal.style.display = "flex";
@@ -64,6 +65,18 @@ const pintarCarrito = () => {
 
     modal.append(carritoContent);
   });
+
+  // Calcular y mostrar el total
+  const total = carrito.reduce((acc, producto) => acc + producto.precio * producto.unidades, 0);
+  const totalBuying = document.createElement("div");
+  totalBuying.className = "total-content";
+  totalBuying.innerHTML = `Total a pagar: ${total}$`;
+  modal.append(totalBuying);
+};
+
+// Mostrar el carrito al hacer clic en el botón
+verCarrito.addEventListener("click", pintarCarrito);
+
 
   // Calcular y mostrar el total
   const total = carrito.reduce((acc, producto) => acc + producto.precio * producto.unidades, 0);
