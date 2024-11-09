@@ -1,15 +1,16 @@
-// Asegúrate de que no haya más de una declaración de esta función
+// Función para pintar el carrito
 const pintarCarrito = () => {
+  // Limpiar el modal completamente, eliminando todos los hijos existentes
   modal.innerHTML = "";
+
+  // Asegurarse de que el modal sea visible
   modal.style.display = "flex";
 
-  // Encabezado del modal
   const modalCaptura = document.createElement("div");
   modalCaptura.className = "modal-captura";
   modalCaptura.innerHTML = `<h1 class="modal-captura-title">Carrito</h1>`;
   modal.append(modalCaptura);
 
-  // Botón para cerrar el modal
   const modalButton = document.createElement("h1");
   modalButton.innerText = "❌";
   modalButton.className = "modal-captura-button";
@@ -74,17 +75,5 @@ const pintarCarrito = () => {
   modal.append(totalBuying);
 };
 
-// Mostrar el carrito al hacer clic en el botón
-verCarrito.addEventListener("click", pintarCarrito);
-
-
-  // Calcular y mostrar el total
-  const total = carrito.reduce((acc, producto) => acc + producto.precio * producto.unidades, 0);
-  const totalBuying = document.createElement("div");
-  totalBuying.className = "total-content";
-  totalBuying.innerHTML = `Total a pagar: ${total}$`;
-  modal.append(totalBuying);
-};
-
-// Mostrar el carrito al hacer clic en el botón
+// Mostrar el carrito al hacer clic
 verCarrito.addEventListener("click", pintarCarrito);
