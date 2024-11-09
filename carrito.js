@@ -1,4 +1,5 @@
 const pintarCarrito = () => {
+  // Limpiar el contenido actual del modal
   modal.innerHTML = "";
   modal.style.display = "flex";
   
@@ -8,7 +9,6 @@ const pintarCarrito = () => {
   modalCaptura.innerHTML = `
     <h1 class="modal-captura-title">Carrito</h1>
   `;
-  
   modal.append(modalCaptura);
 
   // Botón para cerrar el modal
@@ -20,12 +20,20 @@ const pintarCarrito = () => {
   });
   modalCaptura.append(modalButton);
 
+  // Si el carrito está vacío
+  if (carrito.length === 0) {
+    const mensajeVacio = document.createElement("p");
+    mensajeVacio.innerText = "El carrito está vacío.";
+    modal.append(mensajeVacio);
+    return;
+  }
+
   // Mostrar productos en el carrito
   carrito.forEach((producto) => {
     let carritoContent = document.createElement("div");
     carritoContent.className = "modal-content";
     carritoContent.innerHTML = `
-      <img src="${producto.img}">
+      <img src="${producto.img}" alt="${producto.nombre}">
       <h3>${producto.nombre}</h3>
       <p>Precio: ${producto.precio}$</p>
       <p>Ciudad: ${producto.ciudad}</p>
@@ -41,22 +49,23 @@ const pintarCarrito = () => {
     restar.addEventListener("click", () => {
       if (producto.unidades > 1) {
         producto.unidades--;
-        saveLocal();
-        pintarCarrito();
+        saveLocal();  // Guarda el carrito actualizado
+        pintarCarrito();  // Vuelve a renderizar el carrito
       }
     });
 
     const sumar = carritoContent.querySelector(".sumar");
     sumar.addEventListener("click", () => {
       producto.unidades++;
-      saveLocal();
-      pintarCarrito();
+      saveLocal();  // Guarda el carrito actualizado
+      pintarCarrito();  // Vuelve a renderizar el carrito
     });
 
     // Evento para eliminar el producto
     const eliminar = carritoContent.querySelector(".delete-producto");
     eliminar.addEventListener("click", () => {
       eliminarProducto(producto.id);
+      pintarCarrito();  // Vuelve a renderizar el carrito después de eliminar
     });
 
     modal.append(carritoContent);
@@ -66,8 +75,6 @@ const pintarCarrito = () => {
   const total = carrito.reduce((acc, producto) => {
     return acc + (producto.precio || 0) * (producto.unidades || 0);
   }, 0);
-
-  console.log("Total calculado:", total); // Verifica el total en la consola
 
   // Mostrar el total en el modal
   const totalBuying = document.createElement("div");
